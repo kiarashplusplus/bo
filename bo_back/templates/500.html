@@ -1,0 +1,13 @@
+
+<p>"We're sorry but a server error has occurred. We've been notified and will look into it as soon as possible.</p>
+
+<script type="text/javascript">
+window.onload=function(){
+  var key = "7e3806dd-1b8d-4955-870c-d049747f6140";
+  var host = "//logs.loggly.com";
+  castor = new loggly.castor({ url: host+'/inputs/'+key, level: 'log'});
+  castor.log("Hello, world!");
+  castor.log({date: Date(), location: window.location.href});
+}
+</script>
+<script type="text/javascript" src="//d3eyf2cx8mbems.cloudfront.net/js/loggly-0.2.1.js"></script>

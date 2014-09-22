@@ -1,0 +1,13 @@
+Django==1.4
+celery 
+django-celery 
+django-kombu 
+hoover
+django_seo_js
+django-ping
+South
+tldextract
+django-ipware
+python-memcached
+psycopg2
+beautifulsoup4

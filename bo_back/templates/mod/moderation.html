@@ -1,0 +1,67 @@
+{% extends "admin/base.html" %}
+{% load url from future %}
+{% load i18n %}
+{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Django administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block content %}
+
+    <div id="content-main">
+
+      <fieldset class="module aligned ">
+
+<div class="form-row field-reporter">
+                <div>
+
+<label for="id_reporter" class="required">
+    <b>{% trans 'Select a Country' %}:</b>
+</label>
+{#onchange="location = this.options[this.selectedIndex].value;"#}
+<select name="reporter" id="id_country">
+     {% for country in countries %}
+        <option value="/admin/moderate/{{ country.chosen_country__alpha3 }}/">{{ country.chosen_country__name }}, {{ country.chosen_country__alpha3 }}</option>
+     {% endfor %}
+</select>
+<br>
+<label for="id_reporter" class="required">
+    <b>{% trans 'View reports skipped' %}:</b>
+</label>
+<select name="reporter" id="id_skip">
+<option value="" selected="selected">No</option>
+<option value="skip/">Yes</option>
+
+</select>
+                <br>
+<input type="submit" name="respond" value="Continue" onclick="continues();">
+ </div>
+
+ </div>
+
+</fieldset>
+          <h1>{% trans 'Moderation Page' %}</h1>
+<div>
+
+<script type="text/javascript">
+    function continues(){
+        var e = document.getElementById("id_country");
+        var url = e.options[e.selectedIndex].value;
+
+        var skip = document.getElementById("id_skip");
+        skip = skip.options[skip.selectedIndex].value;
+
+        document.location = url+skip;
+    };
+
+</script>
+
+
+</div>
+
+
+</div>
+{% endblock content %}

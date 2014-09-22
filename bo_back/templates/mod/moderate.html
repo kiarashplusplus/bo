@@ -1,0 +1,102 @@
+{% extends "admin/base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Django administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block content %}
+
+
+<div id="content-main">
+
+<form action="{% url 'moderation_page' %}" method="POST">
+{% csrf_token %}
+<div class="submit-row">
+{% if has_reports %}
+    <p style="text-align: center">
+
+        {% if skip %}
+        <input type="hidden" value="skip" name="skip">
+        {% endif %}
+
+<input type="hidden" value="{{ report_decision.id }}" name="flag">
+<input type="hidden" value="{{ country_code }}" name="country_code">
+<input type="submit" name="respond" value="Approve" style="width: 100px">
+<input type="submit" name="respond" value="Reject" style="width: 100px">
+<input type="submit" name="respond" value="Skip">
+<input type="submit" name="respond" value="removeURL">
+<input type="submit" name="respond" value="removeURLbutAddNewOne">
+<input type="submit" name="respond" value="IRspecialCase">
+
+    </p>
+{% endif %}
+</form>
+
+<h1>
+    {% if not has_reports %}
+        Atention!
+        {% else %}
+    {% trans 'Reporter' %}: {{ country.name }}, {{ country.alpha3 }}
+    {% endif %}
+</h1>
+<br>
+<a href="{% url 'moderation_page' %}"> {% trans 'Select other Country' %}</a>
+<div>
+
+<fieldset class="module aligned ">
+{% if not has_reports %}
+    <h1>{% trans "Don't have more reports with flag=1,  for moderation in " %} {{ country.name }}, {{ country.alpha3 }}</h1>
+{% endif %}
+{% if has_reports %}
+<p style="text-align: center">
+<span><b>{% trans 'Time of report' %}: </b><br>{{ report_decision.report.time|date }}</span><br>
+<span><b>{% trans 'Country' %}: </b>{{ report_decision.report.uid.chosen_country.name }}</span><br> 
+<span><b>{% trans 'Client' %}: </b>{{ report_decision.report.uid.client }}</span><br>   
+<span><b>{% trans 'Decision' %}: </b> {{ report_decision.decision }}</span><br>
+<span><b>{% trans 'Url' %}: </b>{{ report_decision.report.url.address }}</span><br>
+<span><b>{% trans 'Final url' %}: </b><br>{{ report_decision.report.final_url }}</span><br>
+<span><b>{% trans 'History' %}: </b><br>{{ report_decision.report.history }}</span><br>
+<span><b>{% trans 'Length' %}: </b><br>{{ report_decision.report.length }}</span><br>
+<span><b>{% trans 'Length' %}: </b><br>{{ report_decision.report.status_code }}</span><br>
+<span><b>{% trans 'headers' %}: </b><br>{{ report_decision.report.headers }}</span><br>
+<span>
+    <b>{% trans 'Cookies' %}: </b><br>{{ report_decision.report.cookies }}
+</span>
+<br>
+            <br>
+<span style="background-color: #ccc;">
+    <b>{% trans 'Content' %}: </b><br>{{ report_decision.report.prettycontent|pprint }}
+</span>
+    <br>
+<br>
+<!--
+<span>
+    <b>{% trans 'Content rendered' %}:</b>
+    <div style="border-color: #000000;border-style: dotted">
+    {{ report_decision.report.content.content }}
+    </div>
+    </span>
+</p>-->
+{% endif %}
+</fieldset>
+
+</div>
+
+<script type="text/javascript">
+(function($) {
+    var field;
+
+})(django.jQuery);
+</script>
+
+</div>
+</div>
+
+{% endblock content %}

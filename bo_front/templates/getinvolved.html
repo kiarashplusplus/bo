@@ -1,0 +1,130 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Get Involved - Monitor Internet Censorship</title>
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://blockedonline.github.io/index_files/result-light.css">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+<style type="text/css">
+</style>
+<style>
+        div.addthis_toolbox {
+        width: 250px;
+        margin: 0 auto;
+}
+ body {
+    padding-bottom: 60px;
+  }
+</style>
+</head>
+<body>
+
+    <div class="jumbotron blue">
+        <div class="container">
+         <h2>JOIN the fight against internet censorship</h2>
+
+     </div>
+ </div>
+ <div id="invest-container" class="container">
+     <h3>Help us collect censorship data from your country</h3>
+
+     <p>Please download our app. When you run it on your computer, it automatically goes through a list of 4000 web-sites and tells us if they are blocked in your country. The app is very small and is completely safe to run. It will not interfere with your normal computer activity</p>
+     <p>No installation is needed. All you need to do is to download and run this app on your computer.</p>
+     <p>You can run this app more than once on different days to provide even more accurate data. But running it even once helps us a lot.</p>
+     <p>This app works on <strong>Windows</strong> only.</p>
+     <div class="text-center">
+        <a type="button" id="download" href="http://blocked_report.s3.amazonaws.com/blockedonline.exe" class="btn btn-large btn-reverse" download>Download</a>
+    </div>
+    <div id="instruction" style="display: none">
+      <h2> Download Instruction</h2>
+
+      <h4> Because of the limited resources, our app is not certified yet. This means that after downloading it, you might get warning messages. The app is safe to run. </h4>
+
+      <p> 1)  If you get a warning from your antivirus, you will need to disable it temporarily. </p>
+      <p> 2) <strong>Windows 8</strong> users will get the warning shown in the following images. Please click on ‘More info’ and then ‘Run anyway’ </p>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8  col-lg-offset-2 col-lg-8">
+          <img src="http://www.blockedonline.com/index_files/moreinfo1.png" class="img-responsive" alt="">
+        </br>
+          <img src="http://www.blockedonline.com/index_files/moreinfo2.png" class="img-responsive" alt="">
+        </div>
+      </div>
+    </div>
+</div>
+<br>
+<div class="container">
+ <h3>Spread the word!</h3>
+
+ <p>Do you have friends in other countries? Let them know that we need their help.</p>
+ <p>Spread the word about our project on Facebook or Twitter:</p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url="http://www.blockedonline.com" addthis:title="Monitor Internet Censorship" addthis:description="How many websites are blocked in in your country?">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5345fdde29a43c06"></script>
+<script type="text/javascript">
+var addthis_config = addthis_config||{};
+addthis_config.data_track_addressbar = false;
+addthis_config.data_track_clickback = false;
+</script>
+<!-- AddThis Button END -->
+
+</div>
+<br>
+<div class="container">
+ <h3>Work with us</h3>
+
+ <p>If you think you can help us with any of the following, send us a message.</p>
+ <ul>
+    <li>Data Visualizations</li>
+    <li>Other forms of design</li>
+    <li>Web development</li>
+</ul>
+<p>This website is on Github. Code something up and it will go live.</p>
+<div class="text-center">
+    <iframe src="http://ghbtns.com/github-btn.html?user=blockedonline&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="200" height="30"></iframe>
+</div>
+</div>
+<br>
+<div class="container">
+ <h3>Contact us</h3>
+
+ <p>Feel free to send us an email at <a href="mailto:blockedonline@mit.edu" target="_top">blockedonline@mit.edu</a></p>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50157618-1', 'blockedonline.com');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+  $('#download').click(function(e){
+
+      $("#instruction").show();
+      document.getElementById("instruction").style.height = '700px';
+      
+      $('html, body').animate({
+          scrollTop: $("#instruction").offset().top
+      }, 500);
+  });
+</script>
+
+</body></html>
